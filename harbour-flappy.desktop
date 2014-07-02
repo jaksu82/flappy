@@ -3,8 +3,4 @@ Type=Application
 X-Nemo-Application-Type=silica-qt5
 Icon=harbour-flappy
 Exec=harbour-flappy
-Name=harbour-flappy
-# translation example:
-# your app name in German locale (de)
-Name[de]=harbour-flappy
-
+Name=Flappy Bird

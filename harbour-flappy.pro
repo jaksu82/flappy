@@ -18,16 +18,13 @@ SOURCES += src/harbour-flappy.cpp
 
 OTHER_FILES += qml/harbour-flappy.qml \
     qml/cover/CoverPage.qml \
-    qml/pages/FirstPage.qml \
-    qml/pages/SecondPage.qml \
+    qml/pages/MainPage.qml \
+    qml/pages/script.js \
+    qml/pages/img/*.png \
+    qml/pages/sound/*.wav \
     rpm/harbour-flappy.changes.in \
     rpm/harbour-flappy.spec \
     rpm/harbour-flappy.yaml \
-    translations/*.ts \
-    harbour-flappy.desktop
-
-# to disable building translations every time, comment out the
-# following CONFIG line
-CONFIG += sailfishapp_i18n
-TRANSLATIONS += translations/harbour-flappy-de.ts
+    harbour-flappy.desktop \
+    qml/pages/MainDialog.qml
 

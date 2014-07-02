@@ -32,22 +32,21 @@ import QtQuick 2.0
 import Sailfish.Silica 1.0
 
 CoverBackground {
-    Label {
-        id: label
-        anchors.centerIn: parent
-        text: qsTr("My Cover")
+
+    Image {
+        id: back
+        source: "back.jpg"
+        anchors.fill: parent
+        fillMode: Image.PreserveAspectCrop
     }
 
-    CoverActionList {
-        id: coverAction
+    Label {
+        id: label
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.bottom: parent.bottom
+        anchors.bottomMargin: parent.height * 0.15
+        text: qsTr("Flappy Bird")
 
-        CoverAction {
-            iconSource: "image://theme/icon-cover-next"
-        }
-
-        CoverAction {
-            iconSource: "image://theme/icon-cover-pause"
-        }
     }
 }
 
