@@ -108,8 +108,6 @@ function sicle(){
         bObjs[2].y=tempBirdTop+(gt-g.t)*(gt-g.t)*(g.h/g.t/g.t)-g.h;
         gt++;
         if(gt==g.t){
-//            mp3="start";
-//            musicT.start();
             playS("start");
         }
         //刷新界面位置
@@ -182,8 +180,6 @@ function restartGame(){//重新开始
 function runGame(){
     if((runTime-100*freshTime-85*freshTime)>=0&&(runTime-100*freshTime-85*freshTime)%(57*freshTime)==0){
         sorceArr[0]++;//得分增加
-//        mp3="sorce";
-//        musicT.start();
         playS("sorce");
         guanArr[sorceArr[0]%3]=Math.random()*300-450//-450~-150/取下一个水管的开口位置
     }
@@ -193,8 +189,6 @@ function runGame(){
 }
 function dieGame(){//死亡时执行的函数
     sorceNow.visible=false;
-//    mp3="die";
-//    musicT.start();
     playS("die");
 
     if(sorceArr[0]>sorceBest){
@@ -238,8 +232,6 @@ function checkDie(){//检测死亡
 }
 
 function tap(){
-//    mp3="tap"
-//    musicT.start();
     playS("tap");
     bObjs[2].rotation=-20;//回复小鸟角度
     gt=0;//重置时间
@@ -307,11 +299,4 @@ function playS(mp){
     else if(mp=="tap"){playMusic2.play();}
     else if(mp=="sorce"){playMusic3.play();}
     else if(mp=="die"){playMusic4.play();}
-}
-
-function pla(){
-//        if(mp3=="start"){playMusic1.play();}
-//        if(mp3=="tap"){playMusic2.play();}
-//        if(mp3=="sorce"){playMusic3.play();}
-//        if(mp3=="die"){playMusic4.play();}
 }

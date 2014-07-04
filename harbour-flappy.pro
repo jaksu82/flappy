@@ -17,14 +17,14 @@ CONFIG += sailfishapp
 SOURCES += src/harbour-flappy.cpp
 
 OTHER_FILES += qml/harbour-flappy.qml \
-    qml/cover/CoverPage.qml \
-    qml/pages/MainPage.qml \
-    qml/pages/script.js \
-    qml/pages/img/*.png \
-    qml/pages/sound/*.wav \
+    qml/CoverPage.qml \
+    qml/MainPage.qml \
+    qml/MainDialog.qml \
+    qml/engine.js \
+    qml/img/*.png \
+    qml/sound/*.wav \
     rpm/harbour-flappy.changes.in \
     rpm/harbour-flappy.spec \
     rpm/harbour-flappy.yaml \
-    harbour-flappy.desktop \
-    qml/pages/MainDialog.qml
+    harbour-flappy.desktop
 

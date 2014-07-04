@@ -1,7 +1,7 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 import QtMultimedia 5.0
-import "script.js" as Sd
+import "engine.js" as Sd
 
 Page {
     id:mainPage
