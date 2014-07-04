@@ -132,7 +132,7 @@ Page {
 
             MouseArea {
                 anchors.fill: parent;
-                enabled: mTimer.running
+                enabled: mTimer.running && !overbg.visible
                 onPressed: Sd.tap()
             }
 
@@ -141,12 +141,13 @@ Page {
                 source: mTimer.running ? "img/pause.png" : "img/play.png"
                 x: 30
                 y: 30
+
+                MouseArea {
+                    anchors.fill: parent
+                    onPressed: mTimer.running = !mTimer.running
+                }
             }
 
-            MouseArea {
-                anchors.fill: pause
-                onPressed: mTimer.running = !mTimer.running
-            }
         }
         Rectangle{//游戏结束界面
             visible: false;
@@ -217,12 +218,25 @@ Page {
             }
         }
 
+        Image {
+            id: mute
+            x: mainPage.width - 30 - width
+            y: 30
+            z: 20
+            source: playMusic1.muted ? "img/mute.png" : "img/audio.png"
+            visible: welcomeDiv.visible || overDiv.visible
+
+            MouseArea {
+                anchors.fill: parent
+                onPressed: playMusic1.muted = !playMusic1.muted
+            }
+        }
     }
     //播放
-    SoundEffect {id: playMusic1;source: "sound/fb_start.wav"}
-    SoundEffect {id: playMusic2;source: "sound/fb_tap.wav"}
-    SoundEffect {id: playMusic3;source: "sound/fb_sorce.wav"}
-    SoundEffect {id: playMusic4;source: "sound/fb_die.wav"}
+    SoundEffect {id: playMusic1;source: "sound/fb_start.wav"; muted: false}
+    SoundEffect {id: playMusic2;source: "sound/fb_tap.wav"; muted: playMusic1.muted}
+    SoundEffect {id: playMusic3;source: "sound/fb_sorce.wav"; muted: playMusic1.muted}
+    SoundEffect {id: playMusic4;source: "sound/fb_die.wav"; muted: playMusic1.muted}
     //“关于”弹窗
     MainDialog{
         id:myDia
