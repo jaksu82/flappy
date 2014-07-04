@@ -4,11 +4,10 @@ import QtMultimedia 5.0
 import "engine.js" as Sd
 
 Page {
-    id:mainPage
+    id: mainPage
     //width: 480;
     //height:854;
     property int tim:0;
-    allowedOrientations: Orientation.Portrait
     Rectangle {
         anchors.fill: parent;
         Image {id: bg_1;//背景
@@ -89,6 +88,7 @@ Page {
                 anchors.fill: parent;
                 onPressed: {
                     Sd.startGame();
+                    mTimer.running = true
                 }
             }
         }
@@ -130,11 +130,22 @@ Page {
                 Image {y: 720;source: "img/guan_2.png";}
             }
 
-            MouseArea{
+            MouseArea {
                 anchors.fill: parent;
-                onPressed: {
-                    Sd.tap();
-                }
+                enabled: mTimer.running
+                onPressed: Sd.tap()
+            }
+
+            Image {id: pause
+                visible: !overDiv.visible
+                source: mTimer.running ? "img/pause.png" : "img/play.png"
+                x: 30
+                y: 30
+            }
+
+            MouseArea {
+                anchors.fill: pause
+                onPressed: mTimer.running = !mTimer.running
             }
         }
         Rectangle{//游戏结束界面
@@ -221,23 +232,20 @@ Page {
     }
 
     //定时器
-    Timer{
+    Timer {
         id:mTimer
-        interval: 20;
-        running: true;
+        interval: 20
+        running: true
         repeat: true
-        onTriggered: {
-            Sd.sicle();
+        onTriggered: Sd.cycle()
+    }
+
+    Connections {
+        target: app
+        onApplicationActiveChanged: {
+            if (!app.applicationActive) {
+                mTimer.running = false
+            }
         }
     }
-    //定时器
-//    Timer{
-//        id:musicT
-//        interval: 20;
-//        running: false;
-//        repeat: false;
-//        onTriggered: {
-//            Sd.pla();
-//        }
-//    }
 }

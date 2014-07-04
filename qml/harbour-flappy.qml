@@ -33,8 +33,8 @@ import Sailfish.Silica 1.0
 
 ApplicationWindow
 {
+    id: app
+    allowedOrientations: Orientation.Portrait
     initialPage: Component { MainPage { } }
     cover: Qt.resolvedUrl("CoverPage.qml")
 }
-
-

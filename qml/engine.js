@@ -67,7 +67,7 @@ function initData(){
     bird1.y=bObjs[1].y=300;//位置重置
     bird.y=bObjs[2].y=300;
 }
-function sicle(){
+function cycle(){
     tmpi=(tmpi+1)%10000;//防止溢出导致程序混乱
 
     if(signalNum<=2){ //背景模拟前进视觉
