@@ -158,6 +158,7 @@ function cycle(){
 function enterGame(){
     welcomeDiv.visible=false;
     readyDiv.visible=true;
+    myDia.forceClose();
     signalNum=1;
     initData();//数据初始化
 }
@@ -175,6 +176,7 @@ function restartGame(){//重新开始
     overDiv.visible=false;
     gameDiv.visible=false;
     readyDiv.visible=true;
+    myDia.forceClose();
     initData();//数据初始化
 }
 function runGame(){
